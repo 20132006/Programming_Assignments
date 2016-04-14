@@ -21,15 +21,12 @@ grad = zeros(size(theta));
 %
 
 
-  n=length(theta);
+  % calculate cost function
+  h = sigmoid(X*theta);
+  J = ((-y)'*log(h)-(1-y)'*log(1-h))/m;
 
-  for index = 1:n
-    h = sigmoid(theta(index,1)*X(:,index));
-    J(index) = (1/m) * sum( (-y'*log(h)) - ( (1-y)'*log(1-h) ) );
-    grad(index) = (1/m) * sum( ( h - y ) * X(index) );
-  end
-  
-  J = min(J);
+  % calculate grads
+  grad = (X'*(h - y))/m;
   
 % =============================================================
 
