@@ -7,6 +7,7 @@ function p = predict(theta, X)
 m = size(X, 1); % Number of training examples
 
 % You need to return the following variables correctly
+
 p = zeros(m, 1);
 
 % ====================== YOUR CODE HERE ======================
@@ -15,10 +16,9 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
-
-
-
-
+prob = sigmoid(X * theta);
+p = ones(m, 1);
+p( find(prob<0.5) ) = 0;	
 
 
 % =========================================================================
