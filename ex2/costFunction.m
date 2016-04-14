@@ -28,7 +28,9 @@ grad = zeros(size(theta));
     J(index) = (1/m) * sum( (-y'*log(h)) - ( (1-y)'*log(1-h) ) );
     grad(index) = (1/m) * sum( ( h - y ) * X(index) );
   end
-
+  
+  J = min(J);
+  
 % =============================================================
 
 end
