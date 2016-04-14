@@ -22,12 +22,12 @@ grad = zeros(size(theta));
 
   h = sigmoid(X*theta);
   J = ( ((-y)'*log(h)-(1-y)'*log(1-h))/m );
+  grad = (X'*(h - y))/m;
   
   for index = 2:length(theta)
     J = J +  + (lambda/(2*m)* theta(index)^2);
+    grad(index) = grad(index) + lambda/m*theta(index);
   end
-  
-  grad = (X'*(h - y))/m;
   
   % =============================================================
 
