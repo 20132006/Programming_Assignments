@@ -20,8 +20,15 @@ grad = zeros(size(theta));
 
 
 
-
-
-% =============================================================
+  h = sigmoid(X*theta);
+  J = ( ((-y)'*log(h)-(1-y)'*log(1-h))/m );
+  
+  for index = 2:length(theta)
+    J = J +  + (lambda/(2*m)* theta(index)^2);
+  end
+  
+  grad = (X'*(h - y))/m;
+  
+  % =============================================================
 
 end
